@@ -84,8 +84,7 @@ jobs:
 
       - name: Update Update app settings in Azure App Service
         run: |
-          az webapp config appsettings set --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --settings MyDbConnection=${{ env.SQL_DB_CONN_STR }}
-          echo ${{ env.SQL_DB_CONN_STR }}
+          az webapp config appsettings set --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --settings MyDbConnection="${{ env.SQL_DB_CONN_STR }}"
 
       - name: Swap to production slot
         run: |
