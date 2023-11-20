@@ -10,7 +10,7 @@ env:
     AZURE_RESOURCEGROUP_NAME: aasRG                      # set this to your preferred resource group name
     AZURE_WEBAPP_NAME: aas02-gh-web                          # set this to your preferred web app name
     ASP_NAME: aas02-gh
-    AZUER_KEY_VAULT: kv01                              # set this to your preferred key valult
+    AZUER_KEY_VAULT: kv01                                       # set this to your preferred key valult and store cs
     SQLSERVER_NAME: aas02-webappsql-gh-actions-srv                          # set this to your preferred sql server name
     DATABASE_NAME: aas02-webappsql-gh-actions-db                   # set this to your preferred sql database name
     SQLADMIN_LOGIN: ${{ secrets.SQLADMIN_LOGIN  }}                # Create a secret in your Github repo for the SQL Admin login name you want to use
