@@ -63,6 +63,6 @@ jobs:
           resourceGroupName: ${{env.AZURE_RESOURCEGROUP_NAME}}
           region: westeurope # Set this to your target region
           template: repo/templates/azuredeploy.json  # Set this to the location of your template file
-          parameters: repo/templates/azuredeploy.parameters.json vaultName="$((1 + RANDOM % 10000)) ${{env.AZUER_KEY_VAULT}}" webappName=${{env.AZURE_WEBAPP_NAME}} aspName=${{env.ASP_NAME}} sqlServerName=${{env.SQLSERVER_NAME}} databaseName=${{env.DATABASE_NAME}} sqlAdminLogin=${{env.SQLADMIN_LOGIN}} sqlAdminPass=${{env.SQLADMIN_PASS}} # Set this to the location of your parameters file
+          parameters: repo/templates/azuredeploy.parameters.json vaultName="$RANDOM ${{env.AZUER_KEY_VAULT}}" webappName=${{env.AZURE_WEBAPP_NAME}} aspName=${{env.ASP_NAME}} sqlServerName=${{env.SQLSERVER_NAME}} databaseName=${{env.DATABASE_NAME}} sqlAdminLogin=${{env.SQLADMIN_LOGIN}} sqlAdminPass=${{env.SQLADMIN_PASS}} # Set this to the location of your parameters file
  
 #TODO: Once the infrastructure got created, download web app publish profile of the staging slot and add it as a secret to the repo. It will be used by the workflow.yml file. 
