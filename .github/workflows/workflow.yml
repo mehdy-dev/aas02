@@ -84,7 +84,7 @@ jobs:
           dotnet tool install --global dotnet-ef --version 6.0.0
           dotnet ef database update
         env:
-          ConnectionStrings__MyDbConnection: ${{ env.SQL_DB_CONN_STR }}
+          ConnectionStrings__MyPiplineDbConnection: ${{ env.SQL_DB_CONN_STR }}
 
       - name: Swap to production slot
         run: |
