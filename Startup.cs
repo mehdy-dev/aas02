@@ -35,7 +35,7 @@ namespace DotNetCoreSqlDb
 
             services.AddControllersWithViews();
             services.AddDbContext<MyDatabaseContext>(options =>   
-            options.UseSqlServer(Configuration.GetConnectionString(configuration["MyDbConnection"])));
+            options.UseSqlServer(configuration["MyDbConnection"]));
              //options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
         }
 
