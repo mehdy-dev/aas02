@@ -5,7 +5,7 @@
         "vaultName": {
             "type": "string",
             "metadata": {
-                "description": "Name of your web app"
+                "description": "Name of your vault name"
             }
         },
         "webappName": {
