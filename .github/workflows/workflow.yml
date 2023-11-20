@@ -76,7 +76,7 @@ jobs:
 
       - name: Update Database
         run: |
-          dotnet tool install --global dotnet-ef --version 8.0.0
+          dotnet tool install --global dotnet-ef --version 7.0.0
           dotnet ef database update
         env:
           ConnectionStrings__MyDbConnection: ${{ env.SQL_DB_CONN_STR }}
