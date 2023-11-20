@@ -29,14 +29,10 @@ namespace DotNetCoreSqlDb
         public void ConfigureServices(IServiceCollection services)
         {
 
-                var configuration = new ConfigurationBuilder()
-                    .AddEnvironmentVariables()
-                    .Build();
-
             services.AddControllersWithViews();
             services.AddDbContext<MyDatabaseContext>(options =>   
-            options.UseSqlServer(configuration["MyDbConnection"]));
-             //options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+            options.UseSqlServer(Configuration["MyDbConnection"]));
+           //  options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
