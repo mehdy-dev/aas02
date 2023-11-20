@@ -93,7 +93,7 @@ jobs:
      
       - name:  add app settings in Azure App Service to prod slot
         run: |
-           az webapp config connection-string set --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }}  --name ${{ env.AZURE_WEBAPP_NAME }} --slot production --settings "MyPiplineDbConnection"="${{ env.SQL_DB_CONN_STR }}" --connection-string-type SQLAzure
+           az webapp config connection-string set --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }}  --name ${{ env.AZURE_WEBAPP_NAME }} --slot staging --settings "MyPiplineDbConnection"="${{ env.SQL_DB_CONN_STR }}" --connection-string-type SQLAzure
            
           # az webapp config appsettings set --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --settings MyPiplineDbConnection="${{ env.SQL_DB_CONN_STR }}"
 
