@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using DotNetCoreSqlDb.Models;
 
+
 namespace DotNetCoreSqlDb
 {
     public class Startup
@@ -27,9 +28,15 @@ namespace DotNetCoreSqlDb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+                var configuration = new ConfigurationBuilder()
+                    .AddEnvironmentVariables()
+                    .Build();
+
             services.AddControllersWithViews();
-            services.AddDbContext<MyDatabaseContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+            services.AddDbContext<MyDatabaseContext>(options =>   
+            options.UseSqlServer(Configuration.GetConnectionString(configuration["MyDbConnection"])));
+             //options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
