@@ -11,7 +11,7 @@ on:
 #
 # 2. Change these variables for your configuration:
 env:
-  AZURE_WEBAPP_NAME: aas02-gh    # set this to your application's name
+  AZURE_WEBAPP_NAME: aas02-gh-web    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '3.1'           # set this to the dot net version to use
   AZURE_RESOURCEGROUP_NAME: aasRG # set this to your preferred resource group name
@@ -45,8 +45,8 @@ jobs:
       - name: 'Run Azure webapp deploy action using publish profile credentials'
         uses: azure/webapps-deploy@v2
         with: 
-          app-name: aas02-gh/staging # Replace with your app name
-          slot-name: aas02-gh-staging
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          slot-name: aas02-gh/staging
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
           package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
           
