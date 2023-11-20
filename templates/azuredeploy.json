@@ -2,6 +2,12 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "vaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of your web app"
+            }
+        },
         "webappName": {
             "type": "string",
             "metadata": {
@@ -237,7 +243,7 @@
               "tenantId": "[subscription().tenantId]",
               "accessPolicies": []
             }
-          }
+        }
     ],
     "outputs": {}
 }
