@@ -10,6 +10,7 @@ env:
     AZURE_RESOURCEGROUP_NAME: aasRG                      # set this to your preferred resource group name
     AZURE_WEBAPP_NAME: aas02-gh-web                          # set this to your preferred web app name
     ASP_NAME: aas02-gh
+    AZUER_KEY_VAULT:kv01
     SQLSERVER_NAME: aas02-webappsql-gh-actions-srv                          # set this to your preferred sql server name
     DATABASE_NAME: aas02-webappsql-gh-actions-db                   # set this to your preferred sql database name
     SQLADMIN_LOGIN: ${{ secrets.SQLADMIN_LOGIN  }}                # Create a secret in your Github repo for the SQL Admin login name you want to use
@@ -62,6 +63,6 @@ jobs:
           resourceGroupName: ${{env.AZURE_RESOURCEGROUP_NAME}}
           region: westeurope # Set this to your target region
           template: repo/templates/azuredeploy.json  # Set this to the location of your template file
-          parameters: repo/templates/azuredeploy.parameters.json webappName=${{env.AZURE_WEBAPP_NAME}} aspName=${{env.ASP_NAME}} sqlServerName=${{env.SQLSERVER_NAME}} databaseName=${{env.DATABASE_NAME}} sqlAdminLogin=${{env.SQLADMIN_LOGIN}} sqlAdminPass=${{env.SQLADMIN_PASS}} # Set this to the location of your parameters file
+          parameters: repo/templates/azuredeploy.parameters.json vaultName=${{env.AZUER_KEY_VAULT}} webappName=${{env.AZURE_WEBAPP_NAME}} aspName=${{env.ASP_NAME}} sqlServerName=${{env.SQLSERVER_NAME}} databaseName=${{env.DATABASE_NAME}} sqlAdminLogin=${{env.SQLADMIN_LOGIN}} sqlAdminPass=${{env.SQLADMIN_PASS}} # Set this to the location of your parameters file
  
 #TODO: Once the infrastructure got created, download web app publish profile of the staging slot and add it as a secret to the repo. It will be used by the workflow.yml file. 
