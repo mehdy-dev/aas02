@@ -67,7 +67,7 @@ jobs:
 
       - name:  add app settings in Azure App Service to staging slot
         run: |
-          az webapp config appsettings set --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --settings MyDbConnection="${{ env.SQL_DB_CONN_STR }}"
+          az webapp config appsettings set --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --settings MyPiplineDbConnection="${{ env.SQL_DB_CONN_STR }}"
       
       # Deploy to Azure Web apps staging slot
       - name: 'Run Azure webapp deploy action using publish profile credentials'
@@ -92,7 +92,7 @@ jobs:
      
       - name:  add app settings in Azure App Service to prod slot
         run: |
-          az webapp config appsettings set --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --settings MyDbConnection="${{ env.SQL_DB_CONN_STR }}"
+          az webapp config appsettings set --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --settings MyPiplineDbConnection="${{ env.SQL_DB_CONN_STR }}"
       
 
 
